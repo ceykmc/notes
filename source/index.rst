@@ -11,6 +11,7 @@ Welcome to xzy_alg's documentation!
    :caption: C++
 
    C++/编译FFmpeg
+   C++/编译OpenCV
 
 .. Indices and tables
 .. ==================
