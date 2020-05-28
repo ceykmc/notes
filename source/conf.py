@@ -18,9 +18,9 @@ import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
-project = 'xzy_alg'
-copyright = '2020, xzy_alg'
-author = 'xzy_alg'
+project = 'LiJun Notes'
+copyright = '2020, LiJun'
+author = 'LiJun'
 
 # The full version, including alpha/beta/rc tags
 release = 'v0.1'
