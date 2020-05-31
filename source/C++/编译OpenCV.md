@@ -41,3 +41,20 @@
    make -j4
    sudo make install
    ```
+
+### 编译OpenCV contrib
+
+1. 克隆OpenCV contrib源码
+
+   Gitee仓库（推荐）：https://gitee.com/cmkyec/opencv_contrib.git
+
+   Github仓库：https://github.com/opencv/opencv_contrib.git
+
+2. 参考contrib仓库README.MD文件进行编译
+
+   编译前，建议将contrib切换成和OpenCV相同的分支。
+
+
+### 使用CUDA进行加速
+
+参考网址：https://www.pyimagesearch.com/2020/02/03/how-to-use-opencvs-dnn-module-with-nvidia-gpus-cuda-and-cudnn/
