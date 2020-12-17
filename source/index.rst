@@ -12,6 +12,7 @@ Welcome to LiJun's documentation!
 
    C++/编译FFmpeg
    C++/编译OpenCV
+   C++/windows编译NCNN
 
 .. Indices and tables
 .. ==================
