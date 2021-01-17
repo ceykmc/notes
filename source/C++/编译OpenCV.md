@@ -8,13 +8,19 @@
 
 2. 编译并安装FFmpeg
 
-3. 安装gtk3
+3. 安装pkg-config（不安装，会导致OpenCV的CMake找不到FFmpeg库）
+
+   ```shell
+   sudo apt-get install pkg-config
+   ```
+
+4. 安装gtk3（可选，如果不需要显示视频，可以不安装）
 
    ```shell
    sudo apt-get install libgtk-3-dev
    ```
 
-4. 下载ippicv
+5. 下载ippicv
 
    默认在使用cmake-gui生成Makefile过程中，下载第三方库中的IPPICV。
    但是在实际使用中，经常下载ippicv失败。
@@ -25,9 +31,9 @@
    替换为
    "file:/home/lijun/workspace/open_source/opencv/"
    ```
-   上述路径依据存储的实际情况进行修改，注意最后一个反斜杠**\/**是必须的。
+   上述路径依据存储的实际情况进行修改，注意最后一个反斜杠**/**是必须的。
 
-5. 使用cmake-gui生成Makefile文件
+6. 使用cmake-gui生成Makefile文件
 
    ```shell
    BUILD_opencv_python_bindings_generator 取消勾选
@@ -35,7 +41,16 @@
    BUILD_opencv_world 勾选
    ```
 
-6. 进行编译以及编译后的安装
+   如果是在shell中，执行如下命令
+
+   ```cmake
+   cd opencv_source_folder
+   mkdir build
+   cd build
+   cmake -DBUILD_opencv_python_bindings_generator=OFF -DBUILD_opencv_python_tests=OFF -DBUILD_opencv_world=ON ..
+   ```
+
+7. 进行编译以及编译后的安装
 
    ```shell
    make -j4
