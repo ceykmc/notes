@@ -19,7 +19,7 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'LiJun Notes'
-copyright = '2020, LiJun'
+copyright = '2021, LiJun'
 author = 'LiJun'
 
 # The full version, including alpha/beta/rc tags
