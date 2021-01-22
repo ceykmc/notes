@@ -1,6 +1,6 @@
-# WINDOWS编译NCNN
+# Windows编译NCNN
 
-### 1. 编译 protobuf
+1. 编译 protobuf
 
 NCNN推荐使用protobuf 3.4.0版本，参考：[build-for-windows-x64-using-visual-studio-community-2017](https://github.com/Tencent/ncnn/wiki/how-to-build#build-for-windows-x64-using-visual-studio-community-2017)
 
@@ -29,7 +29,7 @@ source code选择cmake文件夹
 
 配置好之后，在Visual Studio中进行编译即可。
 
-### 2. 编译NCNN
+2. 编译NCNN
 
 ```shell
 git clone https://gitee.com/cmkyec/ncnn.git

@@ -1,6 +1,6 @@
 # Window编译ONNXRUNTIME
 
-#### 1. 编译基础版本
+## 基础版本
 
 1. 克隆onnxruntime仓库
 
@@ -50,7 +50,7 @@
    
    注意上面命令中，protoc的路径需要和实际保持一致。CMAKE_INSTALL_PREFIX指定了安装的路径，可以根据需要，配置到指定的目录。
 
-#### 2. 增加OpenVINO Provider
+## OpenVINO Provider
 
 1. 安装OpenVINO
 
