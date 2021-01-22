@@ -1,4 +1,4 @@
-# Linux下编译OpenCV
+# Linux编译OpenCV
 
 1. 克隆OpenCV源码
 
@@ -43,7 +43,7 @@
 
    如果是在shell中，执行如下命令
 
-   ```cmake
+   ```shell
    cd opencv_source_folder
    mkdir build
    cd build

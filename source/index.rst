@@ -1,19 +1,14 @@
-.. xzy_alg documentation master file, created by
-   sphinx-quickstart on Thu May 28 15:57:58 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 Welcome to LiJun's documentation!
 ===================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: C++
+   :titlesonly:
 
-   C++/编译FFmpeg
-   C++/编译OpenCV
-   C++/windows编译NCNN
-   C++/ubuntu交叉编译onnxruntime
+   编译FFmpeg/Linux编译FFmpeg
+   编译OpenCV/Linux编译OpenCV
+   编译NCNN/windows编译NCNN
+   编译ONNXRUNTIME/Windows编译ONNXRUNTIME
+   编译ONNXRUNTIME/Linux交叉编译ARM版本ONNXRUNTIME
 
 .. Indices and tables
 .. ==================

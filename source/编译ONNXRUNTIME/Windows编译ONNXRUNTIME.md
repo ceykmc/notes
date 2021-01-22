@@ -45,7 +45,7 @@
    cd build
    cmake -Donnxruntime_BUILD_SHARED_LIB=ON -DONNX_CUSTOM_PROTOC_EXECUTABLE=/path/to/protoc -DCMAKE_INSTALL_PREFIX=../install -Donnxruntime_USE_AVX=ON -Donnxruntime_USE_AVX2=ON -Donnxruntime_USE_AVX512=ON -DCMAKE_BUILD_TYPE=Release -G"NMake Makefiles" ..
    nmake
-nmake install
+   nmake install
    ```
    
    注意上面命令中，protoc的路径需要和实际保持一致。CMAKE_INSTALL_PREFIX指定了安装的路径，可以根据需要，配置到指定的目录。
@@ -54,7 +54,7 @@ nmake install
 
 1. 安装OpenVINO
 
-   https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit/download.html#operatingsystem=Windows&#distributions=Web%20&%20Local%20(recommended)&#options=Local
+   [OpenVINO下载](!https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit/download.html#operatingsystem=Windows&#distributions=Web%20&%20Local%20(recommended)&#options=Local)
 
 2. 使用cmake和nmake进行编译
 
