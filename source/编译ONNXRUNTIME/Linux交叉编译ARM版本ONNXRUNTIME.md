@@ -73,7 +73,7 @@
    执行命令
 
    ```shell
-   cmake -DCMAKE_TOOLCHAIN_FILE=./tool.cmake -Donnxruntime_BUILD_SHARED_LIB=ON -DCMAKE_INSTALL_PREFIX=../install -DONNX_CUSTOM_PROTOC_EXECUTABLE=/home/lijun/tools/protoc-3.11.3-linux-x86_64/bin/protoc ..
+   cmake -DCMAKE_TOOLCHAIN_FILE=./tool.cmake -Donnxruntime_BUILD_SHARED_LIB=ON -DCMAKE_INSTALL_PREFIX=../install -DONNX_CUSTOM_PROTOC_EXECUTABLE=/path/to/protoc -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=/usr/bin/python3 ..
    ```
 
    注意上面命令中，protoc的路径需要和实际保持一致。CMAKE_INSTALL_PREFIX指定了安装的路径，可以根据需要，配置到指定的目录。
@@ -100,7 +100,7 @@
    执行命令
 
    ```shell
-   cmake -DCMAKE_TOOLCHAIN_FILE=./tool.cmake -Donnxruntime_BUILD_SHARED_LIB=ON -DCMAKE_INSTALL_PREFIX=../install -DONNX_CUSTOM_PROTOC_EXECUTABLE=/home/lijun/tools/protoc-3.11.3-linux-x86_64/bin/protoc -Donnxruntime_USE_ACL_2002=ON -Donnxruntime_ACL_HOME=/path/to/ComputeLibrary -Donnxruntime_ACL_LIBS=/path/to/build ..
+   cmake -DCMAKE_TOOLCHAIN_FILE=./tool.cmake -Donnxruntime_BUILD_SHARED_LIB=ON -DCMAKE_INSTALL_PREFIX=../install -DONNX_CUSTOM_PROTOC_EXECUTABLE=/path/to/protoc -Donnxruntime_USE_ACL_2002=ON -Donnxruntime_ACL_HOME=/path/to/ComputeLibrary -Donnxruntime_ACL_LIBS=/path/to/build -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=/usr/bin/python3 ..
    ```
 
    注意上面命令中，onnxruntime_ACL_HOME和onnxruntime_ACL_LIBS需要和实际路径保持一致。
