@@ -12,14 +12,6 @@
    cd build
    ```
 
-   注：克隆结束后，查看cmake/external/gemmlowp目录，看是否为空。如果是空目录，需要重新克隆gemmlowp仓库。
-
-   ```shell
-   cd cmake/external
-   rmdir /s/q ./gemmlowp
-   git clone https://github.com/google/gemmlowp.git
-   ```
-
 2. 下载protoc
 
    protoc需要和cmake/external/protobuf中的版本保持一致，可以进行下述操作：
@@ -72,4 +64,14 @@
    nmake install
    ```
 
+   ## CUDA
    
+   1. 安装CUDA和cuDNN
+   
+   2. 使用cmake和nmake进行编译
+   
+      ```shell
+      cmake -Donnxruntime_BUILD_SHARED_LIB=ON -DONNX_CUSTOM_PROTOC_EXECUTABLE=/path/to/protoc.exe -DCMAKE_INSTALL_PREFIX=../install -Donnxruntime_USE_AVX=ON -Donnxruntime_USE_AVX2=ON -Donnxruntime_USE_AVX512=ON -DCMAKE_BUILD_TYPE=Release -Donnxruntime_USE_CUDA=ON -Donnxruntime_CUDNN_HOME=/path/to/cudnn -G"NMake Makefiles" ../../cmake
+      ```
+   
+      注意onnxruntime_CUDNN_HOME指向到包含cuda的目录。（cudnn解压出来后，会有一个cuda目录，里面包含include、lib、bin三个目录）

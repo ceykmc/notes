@@ -32,14 +32,6 @@
    cd build
    ```
 
-   注：克隆结束后，查看cmake/external/gemmlowp目录，看是否为空。如果是空目录，需要重新克隆gemmlowp仓库。
-
-   ```shell
-   cd cmake/external
-   rm -rf ./gemmlowp
-   git clone https://github.com/google/gemmlowp.git
-   ```
-
 3. 下载protoc
 
    protoc需要和cmake/external/protobuf中的版本保持一致，可以进行下述操作
