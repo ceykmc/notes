@@ -26,6 +26,13 @@ Welcome to LiJun's documentation!
    编译ONNXRUNTIME/Windows编译ONNXRUNTIME
    编译ONNXRUNTIME/Linux交叉编译ARM版本ONNXRUNTIME  
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Linux常用操作
+
+   Linux常用操作
+
+
 .. Indices and tables
 .. ==================
 
