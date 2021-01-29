@@ -28,10 +28,10 @@ Welcome to LiJun's documentation!
 
 .. toctree::
    :maxdepth: 1
-   :caption: Linux常用操作
+   :caption: Linux
 
    Linux常用操作
-
+   vultr_VPS_配置纪录
 
 .. Indices and tables
 .. ==================
