@@ -64,14 +64,60 @@
    nmake install
    ```
 
-   ## CUDA
-   
+   ## CUDA Provider
+
    1. 安装CUDA和cuDNN
-   
+
    2. 使用cmake和nmake进行编译
-   
+
       ```shell
       cmake -Donnxruntime_BUILD_SHARED_LIB=ON -DONNX_CUSTOM_PROTOC_EXECUTABLE=/path/to/protoc.exe -DCMAKE_INSTALL_PREFIX=../install -Donnxruntime_USE_AVX=ON -Donnxruntime_USE_AVX2=ON -Donnxruntime_USE_AVX512=ON -DCMAKE_BUILD_TYPE=Release -Donnxruntime_USE_CUDA=ON -Donnxruntime_CUDNN_HOME=/path/to/cudnn -G"NMake Makefiles" ../../cmake
       ```
-   
+
       注意onnxruntime_CUDNN_HOME指向到包含cuda的目录。（cudnn解压出来后，会有一个cuda目录，里面包含include、lib、bin三个目录）
+
+## TensorRT Provider
+
+1. onnxruntime使用1.7.1版本
+
+   ```shell
+   git checkout -b v1.7.1 v1.7.1
+   ```
+
+2. 下载TensorRT
+
+   TensorRT使用7.1.3.4版本，对应的压缩包为：TensorRT-7.1.3.4.Windows10.x86_64.cuda-11.0.cudnn8.0.zip
+
+   **需要将TensorRT的lib目录添加到PATH中**
+
+3. 下载CUDA和cudnn版本
+
+   依据TensorRT对应的版本，使用CUDA11.0和cudnn8.0。
+
+   **需要将CUDA11.0和cudnn8.0的bin添加到PATH中**
+
+4. 编译onnxruntime
+
+   编辑cmake/CMakeLists.txt文件，在第410行，增加1行
+
+   ```cmake
+   string(APPEND CMAKE_CXX_FLAGS " /EHsc /wd4819")
+   ```
+
+   忽略4819的警告。如果不增加这一行，在编译onnxruntime的过程中，会将4819的警告示为错误，导致编译失败。
+
+   **使用 x64 Native Tools Command Prompt for VS 2019 的 cmd 窗口进行编译**
+
+   ```bash
+   build.bat --config RelWithDebInfo --build_shared_lib --parallel 2 --cmake_generator "Visual Studio 16 2019" --use_tensorrt --tensorrt_home "E:\workspace\cpp_libs\TensorRT-7.1.3.4" --use_cuda --cuda_version 11.0 --cuda_home "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.0" --cudnn_home "E:\workspace\cpp_libs\cudnn8\cuda" --build_wheel --skip_tests
+   ```
+
+   编译出的whl文件在 onnxruntime\build\Windows\RelWithDebInfo\RelWithDebInfo\dist 文件夹中，使用
+
+   ```python
+   pip install onnxruntime_gpu_tensorrt-1.7.1-cp38-cp38-win_amd64.whl
+   ```
+
+   进行安装
+
+   
