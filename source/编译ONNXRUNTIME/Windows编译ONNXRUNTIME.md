@@ -106,18 +106,36 @@
 
    忽略4819的警告。如果不增加这一行，在编译onnxruntime的过程中，会将4819的警告示为错误，导致编译失败。
 
-   **使用 x64 Native Tools Command Prompt for VS 2019 的 cmd 窗口进行编译**
+   编辑tools/ci_build/build.py文件，在第627行，增加1行
 
+   ```cmake
+   "-DCMAKE_CUDA_ARCHITECTURES=61",
+   ```
+
+   指定所使用的CUDA_ARCHITECTURES。对于GPU对应的CUDA_ARCHITECTURES，可以在https://developer.nvidia.com/cuda-gpus查找。
+
+   **使用 x64 Native Tools Command Prompt for VS 2019 的 cmd 窗口进行编译**
+   
    ```bash
-   build.bat --config RelWithDebInfo --build_shared_lib --parallel 2 --cmake_generator "Visual Studio 16 2019" --use_tensorrt --tensorrt_home "E:\workspace\cpp_libs\TensorRT-7.1.3.4" --use_cuda --cuda_version 11.0 --cuda_home "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.0" --cudnn_home "E:\workspace\cpp_libs\cudnn8\cuda" --build_wheel --skip_tests
+build.bat --config RelWithDebInfo --build_shared_lib --parallel 2 --cmake_generator "Visual Studio 16 2019" --use_tensorrt --tensorrt_home "E:\workspace\cpp_libs\TensorRT-7.1.3.4" --use_cuda --cuda_version 11.0 --cuda_home "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.0" --cudnn_home "E:\workspace\cpp_libs\cudnn8\cuda" --build_wheel --skip_tests
    ```
 
    编译出的whl文件在 onnxruntime\build\Windows\RelWithDebInfo\RelWithDebInfo\dist 文件夹中，使用
-
+   
    ```python
    pip install onnxruntime_gpu_tensorrt-1.7.1-cp38-cp38-win_amd64.whl
    ```
-
+   
    进行安装
-
+   
+   **注**
+   
+   1. 编译过程中，如果需要克隆pybind11这个库，由于网络的原因，可能克隆不成功。
+   
+   可以将cmake/external/onnx/third_party/pybind11拷贝到build/Windows/RelWithDebInfo/pybind11中，并将文件夹重命名为src，即：
+   
+   build/Windows/RelWithDebInfo/pybind11
+   
+   ------src
+   
    
